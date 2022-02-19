@@ -11,6 +11,8 @@
   "dependencies": {
     "core-js": "^3.6.5",
     "express": "^4.17.3",
+    "interact.js": "^1.2.8",
+    "interactjs": "^1.10.11",
     "vue": "^2.6.11"
   },
   "devDependencies": {
