@@ -16,9 +16,15 @@ export default {
     return {}
   },
   mounted() {
+    const app = document.getElementById('app');
     interact('.draggable').draggable({
       onmove: this.dragMoveListener,
       inertia: false,
+      restrict: {
+        restriction: app,
+        elementRect: { top: 0, left: 0, bottom: 1, right: 1},
+        endOnly: false
+      },
     });
   },
   methods: {
@@ -38,16 +44,19 @@ export default {
 </script>
 
 <style>
+body {
+  margin: 0;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
-  height: 100vh;
+  height: 99vh;
   touch-action: none;
   overflow: hidden;
+  border: 3px solid black;
 }
 img {
   width: 300px;
