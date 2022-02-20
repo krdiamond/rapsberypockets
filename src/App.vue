@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" class="draggable" src="./assets/logo.png">
+    <img class="draggable" :src="require('./assets/cool-drip.png')"/> 
+    <img class="draggable" :src="require('./assets/pink-drip.png')"/> 
     <div>RASPBERRY POCKETS</div>
   </div>
 </template>
@@ -44,7 +45,11 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  height: 100vh;
   touch-action: none;
   overflow: hidden;
+}
+img {
+  width: 300px;
 }
 </style>
