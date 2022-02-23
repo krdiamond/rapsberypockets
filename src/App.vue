@@ -8,7 +8,7 @@
       <div id="3" class="grid-item">3</div>  
       <div id="4" class="grid-item">4</div>
       <div id="5" class="grid-item">5</div>
-      <div id="6" class="grid-item droppable">6</div>  
+      <div id="6" class="grid-item dropzone6">6</div>  
       <div id="7" class="grid-item">7</div>
       <div id="8" class="grid-item">8</div>
       <div id="9" class="grid-item">9</div>  
@@ -18,7 +18,7 @@
       <img id="drip_1" class="drip draggable" dataSnap="2" :src="require('./assets/cool-drip.png')"/> 
     </div>
     <div>
-      <img id="drip_2" class="drip draggable" dataSnap="6" :src="require('./assets/pink-drip.png')"/>
+      <img id="drip_2" class="drip drip2 draggable " dataSnap="6" :src="drip2"/>
     </div>
       
     
@@ -34,7 +34,12 @@ export default {
   name: 'App',
   components: {},
   data(){
-    return {}
+    return {
+      drip2: require('./assets/pink-drip.png'),
+      pinkDrip: require('./assets/pink-drip.png'),
+      shrimp: require('./assets/shrimp.png')
+      
+    }
   },
   mounted() {
     const app = document.getElementById('app');
@@ -48,8 +53,17 @@ export default {
         endOnly: false
       },
     });
+    interact('.dropzone6').dropzone({
+      accept: '.drip2',
+      overlap: .5,
+      ondrop: this.switchElement
+    });
   },
+  computed: {},
   methods: {
+    switchElement() {
+      this.drip2 = this.shrimp
+    },
     findSnapLocation(event) {
       const snapLocation = document.getElementById(event.target.getAttribute('dataSnap'));
       let snapLocationRectangle = snapLocation.getBoundingClientRect();
@@ -83,6 +97,8 @@ export default {
       // update the posiion attributes so that it keeps moving
       target.setAttribute('data-x', x);
       target.setAttribute('data-y', y);
+
+      this.drip2 = this.pinkDrip;
     }
   }
 }
