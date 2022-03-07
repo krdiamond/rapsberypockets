@@ -2,24 +2,33 @@
   <div id="app">
     <div>RASPBERRY POCKETS</div>
 
-    <div class="grid-container">
-      <div id="1" class="grid-item">1</div>
-      <div id="2" class="grid-item">2</div>
-      <div id="3" class="grid-item">3</div>  
-      <div id="4" class="grid-item">4</div>
-      <div id="5" class="grid-item">5</div>
-      <div id="6" class="grid-item dropzone6">6</div>  
-      <div id="7" class="grid-item">7</div>
-      <div id="8" class="grid-item">8</div>
-      <div id="9" class="grid-item">9</div>  
+
+    <div class="rp-container">
+      <img class="rp" :src="require('./assets/testdoll-01.svg')"/> 
+      <div class="grid-container">
+        <div id="1" class="grid-item">1</div>
+        <div id="2" class="grid-item">2</div>
+        <div id="3" class="grid-item">3</div>  
+        <div id="4" class="grid-item">4</div>
+        <div id="5" class="grid-item dropzone5">5</div>
+        <div id="6" class="grid-item ">6</div>  
+        <div id="7" class="grid-item">7</div>
+        <div id="8" class="grid-item">8</div>
+        <div id="9" class="grid-item">9</div>  
+      </div>
     </div>
 
+
+
+<div class="drip-home">
     <div>
       <img id="drip_1" class="drip draggable" dataSnap="2" :src="require('./assets/cool-drip.png')"/> 
     </div>
     <div>
-      <img id="drip_2" class="drip drip2 draggable " dataSnap="6" :src="drip2"/>
+      <img id="drip_2" class="drip drip2 draggable " dataSnap="5" :src="drip2"/>
     </div>
+</div>
+   
       
     
 
@@ -53,7 +62,7 @@ export default {
         endOnly: false
       },
     });
-    interact('.dropzone6').dropzone({
+    interact('.dropzone5').dropzone({
       accept: '.drip2',
       overlap: .5,
       ondrop: this.switchElement
